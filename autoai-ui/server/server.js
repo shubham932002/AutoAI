@@ -4,10 +4,15 @@ const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
 const { readExcelFile, updateEstimatedHours } = require("./fileProcessor");
+const { chatbot } = require("./chatbot");
 
 const app = express();
 const upload = multer({ dest: "uploads/" }); // Temporary upload directory
+
 app.use(cors());
+app.use(express.json()); // Add this line to parse JSON request bodies
+app.use(express.urlencoded({ extended: true })); // Optional: Parses URL-encoded data
+
 // Handle file upload and processing
 app.post("/upload", upload.single("file"), async (req, res) => {
   if (!req.file) {
@@ -27,6 +32,25 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     // Clean up the uploaded file after processing
     fs.unlink(filePath, (err) => {
       if (err) console.error("Error deleting temporary file:", err);
+    });
+  }
+});
+
+app.post("/process-text", async (req, res) => {
+  try {
+    const { text } = req.body;
+    const chatbotResponse = await chatbot(text);
+    console.log("Console-11");
+    console.log("Content -> " + chatbotResponse);
+    res.json({
+      success: true,
+      message: chatbotResponse,
+    });
+  } catch (error) {
+    console.error("Error processing text:", error);
+    res.status(500).json({
+      success: false,
+      error: "An error occurred while processing your request.",
     });
   }
 });
