@@ -1,0 +1,30 @@
+{
+  "name": "autoai-ui-client",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-oauth/google": "^0.12.1",
+    "axios": "^1.7.8",
+    "framer-motion": "^11.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-microsoft-login": "^2.0.1",
+    "react-router-dom": "^7.0.1",
+    "tailwindcss": "^3.4.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.1",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0"
+  }
+}
