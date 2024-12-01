@@ -1,0 +1,122 @@
+/* General layout */
+.chatbot-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw; /* Full width */
+  background-color: #1e1e1e; /* Dark background */
+  color: white; /* White text for contrast */
+}
+
+/* Sidebar */
+.chatbot-sidebar {
+  width: 25%; /* Sidebar width */
+  background-color: #333; /* Darker sidebar background */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-sidebar h2 {
+  font-size: 1.5rem;
+}
+
+.chatbot-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.chatbot-sidebar li {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #444; /* Darker list item background */
+  border-radius: 5px;
+}
+
+.chatbot-sidebar li:hover {
+  background-color: #555; /* Hover effect */
+}
+
+/* Main chat area */
+.chatbot-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-header {
+  font-size: 1.8rem; /* Increased font size */
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  background-color: #4a90e2; /* Blue header for modern look */
+}
+
+.chatbot-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message {
+  padding: 12px; /* Slightly larger padding */
+  border-radius: 12px; /* More rounded corners */
+  max-width: 75%; /* Increased max width for messages */
+}
+
+.message.user {
+   background-color: #4caf50; /* Green for user messages */
+}
+
+.message.bot {
+   background-color: #444; /* Dark gray for bot messages */
+}
+
+/* Input area */
+.chatbot-input-container {
+   display: flex;
+   padding:15px ;
+   background-color:#333; /* Dark input area */
+   border-top-left-radius:.5rem ; 
+   border-top-right-radius:.5rem ;
+}
+
+.chatbot-input {
+   flex:1 ;
+   padding :12px ; /* Increased padding for input field */
+   border-radius:.5rem ;
+   border:none ;
+   background-color:#555; /* Darker input field */
+   color:white ; 
+}
+
+.chatbot-send-button {
+   padding :12px ; /* Increased button padding */
+   border:none ;
+   background-color:#4caf50; /* Green button */
+   color:white ;
+   display:flex ;
+   align-items:center ;
+   justify-content:center ;
+   cursor:pointer ;
+}
+
+.arrow {
+   font-size :1.5rem ; /* Arrow size */
+}
+
+/* Responsive design */
+@media (max-width:768px) {
+   .chatbot-container {
+     flex-direction: column;
+   }
+
+   .chatbot-sidebar {
+     width :100%; /* Full width on small screens */
+     height:auto ;
+     order :1 ; 
+   }
+
+   .chatbot-main {
+     order :2 ; 
+   }
+}

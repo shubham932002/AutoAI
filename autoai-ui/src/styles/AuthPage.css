@@ -1,0 +1,126 @@
+/* authapage.css */
+.auth-page {
+  background: #121212;
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  animation: fadeInBackground 2s forwards; /* Fade-in effect for background */
+}
+
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.auth-container {
+  background: #1e1e1e;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 350px;
+  opacity: 0; /* Initially hidden */
+  animation: fadeInContainer 2s forwards 1s; /* Fade-in animation with delay */
+}
+
+@keyframes fadeInContainer {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  opacity: 0; /* Initially hidden */
+  animation: fadeInText 2s forwards 1.5s; /* Fade-in animation with delay */
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.auth-container form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+  font-size: 16px;
+}
+
+.auth-container form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  background: #00d4ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  opacity: 0; /* Initially hidden */
+  animation: fadeInButton 1s forwards 2s; /* Fade-in animation for button */
+}
+
+@keyframes fadeInButton {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.auth-container form button:hover {
+  background: #0078a8;
+  transform: scale(1.05);
+}
+
+.auth-container .switch-link {
+  color: #00d4ff;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
