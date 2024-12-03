@@ -64,59 +64,59 @@
 }
 
 .message.user {
-   background-color: #4caf50; /* Green for user messages */
+  background-color: #4caf50; /* Green for user messages */
 }
 
 .message.bot {
-   background-color: #444; /* Dark gray for bot messages */
+  background-color: #444; /* Dark gray for bot messages */
 }
 
 /* Input area */
 .chatbot-input-container {
-   display: flex;
-   padding:15px ;
-   background-color:#333; /* Dark input area */
-   border-top-left-radius:.5rem ; 
-   border-top-right-radius:.5rem ;
+  display: flex;
+  padding: 15px;
+  background-color: #333; /* Dark input area */
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 .chatbot-input {
-   flex:1 ;
-   padding :12px ; /* Increased padding for input field */
-   border-radius:.5rem ;
-   border:none ;
-   background-color:#555; /* Darker input field */
-   color:white ; 
+  flex: 1;
+  padding: 12px; /* Increased padding for input field */
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #555; /* Darker input field */
+  color: white;
 }
 
 .chatbot-send-button {
-   padding :12px ; /* Increased button padding */
-   border:none ;
-   background-color:#4caf50; /* Green button */
-   color:white ;
-   display:flex ;
-   align-items:center ;
-   justify-content:center ;
-   cursor:pointer ;
+  padding: 12px; /* Increased button padding */
+  border: none;
+  background-color: #4caf50; /* Green button */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .arrow {
-   font-size :1.5rem ; /* Arrow size */
+  font-size: 1.5rem; /* Arrow size */
 }
 
 /* Responsive design */
-@media (max-width:768px) {
-   .chatbot-container {
-     flex-direction: column;
-   }
+@media (max-width: 768px) {
+  .chatbot-container {
+    flex-direction: column;
+  }
 
-   .chatbot-sidebar {
-     width :100%; /* Full width on small screens */
-     height:auto ;
-     order :1 ; 
-   }
+  .chatbot-sidebar {
+    width: 100%; /* Full width on small screens */
+    height: auto;
+    order: 1;
+  }
 
-   .chatbot-main {
-     order :2 ; 
-   }
+  .chatbot-main {
+    order: 2;
+  }
 }

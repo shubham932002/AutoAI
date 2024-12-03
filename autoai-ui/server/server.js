@@ -5,6 +5,7 @@ const fs = require("fs");
 const cors = require("cors");
 const { readExcelFile, updateEstimatedHours } = require("./fileProcessor");
 const { chatbot } = require("./chatbot");
+const { processUserQuery } = require("./processQuery");
 
 const app = express();
 const upload = multer({ dest: "uploads/" }); // Temporary upload directory
@@ -39,12 +40,12 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 app.post("/process-text", async (req, res) => {
   try {
     const { text } = req.body;
-    const chatbotResponse = await chatbot(text);
+    const response = await processUserQuery(text);
     console.log("Console-11");
-    console.log("Content -> " + chatbotResponse);
+    console.log("Content -> " + response);
     res.json({
       success: true,
-      message: chatbotResponse,
+      message: response,
     });
   } catch (error) {
     console.error("Error processing text:", error);

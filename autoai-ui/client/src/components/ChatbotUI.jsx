@@ -7,11 +7,6 @@ const ChatbotUI = () => {
     { text: "Hello! How can I assist you today?", sender: "bot" },
   ]);
   const [userInput, setUserInput] = useState("");
-  const [chatHistory, setChatHistory] = useState([
-    "Chat 1",
-    "Chat 2",
-    "Chat 3",
-  ]);
   const [file, setFile] = useState(null);
   const [isTyping, setIsTyping] = useState(false);
   const [chatbotResponse, setChatbotResponse] = useState(""); // New state for storing the bot's response
@@ -79,19 +74,44 @@ const ChatbotUI = () => {
 
   const renderMessage = (message) => {
     if (message.type === "structured") {
+      const {
+        title,
+        projectStatus,
+        milestones,
+        currentStatus,
+        remainingTasks,
+        resourceAllocation,
+        overall,
+      } = message.text;
+
       return (
         <div className="structured-message">
-          <h3>Progress Details:</h3>
-          <table>
-            <tbody>
-              {Object.entries(message.text).map(([key, value], index) => (
-                <tr key={index}>
-                  <td>{key}</td>
-                  <td>{value}</td>
-                </tr>
+          <h2>{title}</h2>
+          <p>
+            <strong>Project Status:</strong> {projectStatus}
+          </p>
+          <div>
+            <strong>Key Milestones Achieved:</strong>
+            <ul>
+              {milestones.map((milestone, index) => (
+                <li key={index}>
+                  <strong>{milestone.title}:</strong> {milestone.details}
+                </li>
               ))}
-            </tbody>
-          </table>
+            </ul>
+          </div>
+          <p>
+            <strong>Current Status:</strong> {currentStatus}
+          </p>
+          <p>
+            <strong>Remaining Tasks & Next Steps:</strong> {remainingTasks}
+          </p>
+          <p>
+            <strong>Resource Allocation:</strong> {resourceAllocation}
+          </p>
+          <p>
+            <strong>Overall:</strong> {overall}
+          </p>
         </div>
       );
     }
@@ -100,16 +120,6 @@ const ChatbotUI = () => {
 
   return (
     <div className="chatbot-container">
-      {/* Sidebar for chat history */}
-      <div className="chatbot-sidebar">
-        <h2>Chat History</h2>
-        <ul>
-          {chatHistory.map((chat, index) => (
-            <li key={index}>{chat}</li>
-          ))}
-        </ul>
-      </div>
-
       {/* Chat area */}
       <div className="chatbot-main">
         <div className="chatbot-header">AutoAI Chatbot</div>
